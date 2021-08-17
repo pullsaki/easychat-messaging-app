@@ -31,11 +31,10 @@ const Chats = () => {
         return;
       }
 
-      // Get-or-Create should be in a Firebase Function
       axios
         .get("https://api.chatengine.io/users/me/", {
           headers: {
-            "project-id": "a48e9f25-7ecc-4a98-b8cc-807e9cfbe2e6",
+            "project-id": process.env.REACT_APP_CHAT_ENGINE_ID,
             "user-name": user.email,
             "user-secret": user.uid,
           },
@@ -55,7 +54,7 @@ const Chats = () => {
             axios
               .post("https://api.chatengine.io/users/", formdata, {
                 headers: {
-                  "private-key": "7a9855a0-56d7-452c-9eca-98652b868baf",
+                  "private-key": process.env.REACT_APP_CHAT_ENGINE_KEY,
                 },
               })
               .then(() => setLoading(false))
@@ -70,7 +69,7 @@ const Chats = () => {
   return (
     <div className="chats-page">
       <div className="nav-bar">
-        <div className="logo-tab">Unichat</div>
+        <div className="logo-tab">EasyChat</div>
 
         <div onClick={handleLogout} className="logout-tab">
           Logout
@@ -79,7 +78,7 @@ const Chats = () => {
 
       <ChatEngine
         height="calc(100vh - 66px)"
-        projectID="a48e9f25-7ecc-4a98-b8cc-807e9cfbe2e6"
+        projectID={process.env.REACT_APP_CHAT_ENGINE_ID}
         userName={user.email}
         userSecret={user.uid}
       />
