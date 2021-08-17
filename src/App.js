@@ -1,25 +1,25 @@
-import React from "react"
+import React from "react";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-// import { AuthProvider } from "./contexts/AuthContext"
+import { AuthProvider } from "./store/auth-context";
 
-// import Chats from "./components/Chats"
-// import Login from "./components/Login"
+import Chats from "./components/Chats";
+import Login from "./components/Login";
 
-function App() {
+const App = () => {
   return (
-    <div style={{ fontFamily: 'Avenir' }}>
+    <div style={{ fontFamily: "Avenir" }}>
       <Router>
-        {/* <AuthProvider> */}
+        <AuthProvider>
           <Switch>
-            {/* <Route path="/chats" component={Chats} />
-            <Route path="/" component={Login} /> */}
+            <Route path="/chats" component={Chats} />
+            <Route path="/" component={Login} />
           </Switch>
-        {/* </AuthProvider> */}
+        </AuthProvider>
       </Router>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
