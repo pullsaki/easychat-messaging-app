@@ -9,7 +9,6 @@ This is a React application which made to implement some react concepts I know a
 
 * Clone the project
 * Install the necessary packages using `npm install` command
-* Setup an app on https://chatengine.io/ and setup the env variables with your own project ID and key
 * Enter `npm start` to run the project. It will running on https://localhost:3000/
 * Enter `npm run build` to get a production version of the project
 
